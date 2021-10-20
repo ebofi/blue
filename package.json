@@ -1,0 +1,12 @@
+{
+    "version": "1.0.0",
+    "name": "Cordova-Bluetooth-Printer-Plugin",
+    "cordova_name": "Cordova Bluetooth Printer Plugin",
+    "license": "MIT License",
+    "author": "Truewind IT",
+    "platforms": [ "android"],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TruewindIT/Cordova-Bluetooth-Printer-Plugin.git"
+    }
+}
