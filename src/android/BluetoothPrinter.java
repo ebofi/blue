@@ -33,8 +33,6 @@ import android.util.Xml.Encoding;
 import android.util.Base64;
 
 import java.nio.charset.Charset;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.PermissionChecker;
 
 public class BluetoothPrinter extends CordovaPlugin {
 	private static final String LOG_TAG = "BluetoothPrinter";
@@ -57,13 +55,6 @@ public class BluetoothPrinter extends CordovaPlugin {
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		if (action.equals("list")) {
-			if (PermissionChecker.checkSelfPermission(this.cordova.getContext(), android.Manifest.permission.BLUETOOTH_SCAN) != PermissionChecker.PERMISSION_GRANTED) {  
-                ActivityCompat.requestPermissions(
-                    this.cordova.getActivity(),    
-                    new String[] { android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT },
-                    REQUEST_BLUETOOTH_PERMISSION
-                );
-				
 			listBT(callbackContext);
 			return true;
 		} else if (action.equals("connect")) {
