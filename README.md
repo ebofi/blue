@@ -1,23 +1,26 @@
 # Cordova-Bluetooth-Printer-Plugin
 A cordova plugin for bluetooth printer for android platform.
 
-##Support
+This code is being adapted from a fork of Cordova-Plugin-Bluetooth-Printer, of free use and modifications that will arise for the improvement of the plugin.
+
+## Support
 - Text
 - POS
 - ZPL and ZPL Commands
 
-##Install
+## Install
 Using the Cordova CLI and NPM, run:
 
 ```
 cordova plugin add https://github.com/TruewindIT/Cordova-Bluetooth-Printer-Plugin
 ```
 
+## Usage
+Get list of paired bluetooth devices, including printers, if any:
 
-##Usage
-Get list of paired bluetooth printers
+### List of bluetooth devices available
 
-```
+``` javascript
 BTPrinter.list(function(data){
         console.log("Success");
         console.log(data); \\list of printer in data array
@@ -27,10 +30,21 @@ BTPrinter.list(function(data){
     })
 ```
 
+### Check Bluetooth status
 
-Connect printer
-
+```javascript
+BTPrinter.status(function(data){
+	console.log("Success");
+	console.log(data) // bt status: true or false
+},function(err){
+	console.log("Error");
+	console.log(err)
+});
 ```
+
+### Connect printer
+
+``` javascript
 BTPrinter.connect(function(data){
 	console.log("Success");
 	console.log(data)
@@ -40,36 +54,21 @@ BTPrinter.connect(function(data){
 }, "PrinterName")
 ```
 
+### Disconnect printer
 
-Disconnect printer
-
-```
+```javascript
 BTPrinter.disconnect(function(data){
 	console.log("Success");
 	console.log(data)
 },function(err){
 	console.log("Error");
 	console.log(err)
-}, "PrinterName")
+}, "PrinterName");
 ```
 
+### Print simple string
 
-Disconnect printer
-
-```
-BTPrinter.disconnect(function(data){
-	console.log("Success");
-	console.log(data)
-},function(err){
-	console.log("Error");
-	console.log(err)
-})
-```
-
-
-Print simple string
-
-```
+```javascript
 BTPrinter.printText(function(data){
     console.log("Success");
     console.log(data)
@@ -79,9 +78,9 @@ BTPrinter.printText(function(data){
 }, "String to Print")
 ```
 
-POS printing
+### Print a POS command
 
-```
+``` javascript
 BTPrinter.printPOSCommand(function(data){
     console.log("Success");
     console.log(data)
@@ -89,5 +88,6 @@ BTPrinter.printPOSCommand(function(data){
     console.log("Error");
     console.log(err)
 }, "0C")
+
 //OC is a POS command for page feed
 ```

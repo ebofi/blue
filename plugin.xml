@@ -5,39 +5,40 @@
    id="cordova-bluetooth-printer-plugin"
    version="1.0">
 
-   <name>Cordova-Bluetooth-Printer-Plugin</name>
-   <description>A cordova plugin for bluetooth printer for android platform.</description>
+    <name>Cordova-Bluetooth-Printer-Plugin</name>
+    <description>A cordova plugin for bluetooth printer for android platform.</description>
 
-   <repo>https://github.com/TruewindIT/Cordova-Bluetooth-Printer-Plugin</repo>
-   <license>Apache 2.0</license>
-   <keywords>cordova, bluetooth, printer, pos, text</keywords>
+    <repo>https://github.com/TruewindIT/Cordova-Bluetooth-Printer-Plugin</repo>
+    <license>Apache 2.0</license>
+    <keywords>cordova, bluetooth, printer, pos, text</keywords>
 
-   <author>TruewindIT</author>
+    <author>TruewindIT</author>
 
-   <!-- cordova -->
-   <engines>
-      <engine name="cordova" version=">=3.0.0" />
-   </engines>
+    <!-- cordova -->
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
 
-   <js-module src="www/BluetoothPrinter.js" name="BluetoothPrinter">
-      <clobbers target="BTPrinter" />
-   </js-module>
+    <js-module src="www/BluetoothPrinter.js" name="BluetoothPrinter">
+        <clobbers target="BTPrinter" />
+    </js-module>
 
-   <!-- android -->
-   <platform name="android">
-      <config-file target="res/xml/config.xml" parent="/*">
-         <feature name="BluetoothPrinter">
-            <param name="android-package" value="com.ru.cordova.printer.bluetooth.BluetoothPrinter"/>
-         </feature>
-      </config-file>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BluetoothPrinter">
+                <param name="android-package" value="com.ru.cordova.printer.bluetooth.BluetoothPrinter"/>
+            </feature>
+        </config-file>
 
-      <config-file target="AndroidManifest.xml" parent="/*">
-	  <uses-permission android:name="android.permission.BLUETOOTH" />
-	  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-	  <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-          <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-      </config-file>
+        <framework src="androidx.appcompat:appcompat:1.6.1" />
 
-      <source-file src="src/android/BluetoothPrinter.java" target-dir="src/com/ru/cordova/printer/bluetooth" />
-   </platform>
+        <config-file target="AndroidManifest.xml" parent="/*">
+	        <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+            <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation" />
+            <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+        </config-file>
+
+        <source-file src="src/android/BluetoothPrinter.java" target-dir="src/com/ru/cordova/printer/bluetooth" />
+    </platform>
 </plugin>
