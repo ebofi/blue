@@ -63,15 +63,21 @@ public class BluetoothPrinter extends CordovaPlugin {
         
         if (action.equals("status")) 
         {
-            if (PermissionChecker.checkSelfPermission(this.cordova.getContext(), android.Manifest.permission.BLUETOOTH_SCAN) != PermissionChecker.PERMISSION_GRANTED) {  
+            if (PermissionChecker.checkSelfPermission(this.cordova.getContext(), android.Manifest.permission.BLUETOOTH_SCAN) != PermissionChecker.PERMISSION_GRANTED) 
+            {  
                 ActivityCompat.requestPermissions(
                     this.cordova.getActivity(),    
                     new String[] { android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT },
                     REQUEST_BLUETOOTH_PERMISSION
                 );
+
+                callbackContext.error("Please give the requested permissions.");
+            } 
+            else 
+            {
+                checkBTStatus(callbackContext);
             }
 
-            checkBTStatus(callbackContext);
             return true;
         }
         else if( action.equals("list") )
