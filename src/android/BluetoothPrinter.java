@@ -73,10 +73,8 @@ public class BluetoothPrinter extends CordovaPlugin {
 
                 callbackContext.error("Please give the requested permissions.");
             } 
-            else 
-            {
-                checkBTStatus(callbackContext);
-            }
+
+            checkBTStatus(callbackContext);
 
             return true;
         }
