@@ -9,4 +9,8 @@
         "type": "git",
         "url": "git+https://github.com/TruewindIT/Cordova-Bluetooth-Printer-Plugin.git"
     }
+    "publishConfig": {
+  "registry": "https://npm.pkg.github.com"
+},
+
 }
