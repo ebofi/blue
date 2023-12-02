@@ -7,7 +7,7 @@
     "platforms": [ "android"],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/TruewindIT/Cordova-Bluetooth-Printer-Plugin.git"
+        "url": "git+https://github.com/ebofi/blue.git"
     }
     "publishConfig": {
   "registry": "https://npm.pkg.github.com"
