@@ -8,9 +8,9 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ebofi/blue.git"
-    }
+    },
     "publishConfig": {
   "registry": "https://npm.pkg.github.com"
-},
+}
 
 }
